@@ -1,8 +1,20 @@
+import React from "react";
 import Image from "next/image";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { ChevronLeftIcon, PlusCircleIcon } from "@heroicons/react/24/solid";
-export default function HomePage() {
+function ShoppingLists() {
   const router = useRouter();
+  const [listName, setListName] = useState("");
+  const [deadline, setDeadline] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("List Name:", listName);
+    console.log("Deadline:", deadline);
+    setListName("");
+    setDeadline("");
+  };
   return (
     <>
       <div
@@ -13,20 +25,16 @@ export default function HomePage() {
           height: "10rem",
         }}>
         <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-2xl font-semibold">
-          <ChevronLeftIcon className="h-7 w-7 cursor-pointer" />
+          <ChevronLeftIcon
+            onClick={() => router.push("/createYourList")}
+            className="h-7 w-7 cursor-pointer"
+          />
           <p>My Shopping Lists</p>
         </div>
       </div>
-
-      <div>
-        <Image className=" mx-auto" src="/pic2.jpeg" height={200} width={300} />
-      </div>
-      <div
-        onClick={() => router.push("/createYourList")}
-        className="flex cursor-pointer items-center justify-center mt-10 space-x-2 bg-yellow-500 rounded-2xl p-2 w-2/3 mx-auto ">
-        <PlusCircleIcon className="h-7 w-7" />
-        <p>Add a new List</p>
-      </div>
+      <div>{/* shopping lists */}</div>
     </>
   );
 }
+
+export default ShoppingLists;
