@@ -22,7 +22,10 @@ function Footer(props) {
           onClick={() => router.push("/")}
           className="h-7 w-7 cursor-pointer"
         />
-        <Squares2X2Icon className="h-7 w-7 cursor-pointer" />
+        <Squares2X2Icon
+          onClick={() => router.push("/categories")}
+          className="h-7 w-7 cursor-pointer"
+        />
         <PlusCircleIcon
           onClick={() => router.push("/createYourList")}
           className="h-7 w-7 cursor-pointer"
@@ -33,7 +36,10 @@ function Footer(props) {
           className="h-7 w-7 cursor-pointer"
         />
 
-        <UserIcon className="h-7 w-7 cursor-pointer" />
+        <UserIcon
+          onClick={() => router.push("/accountDetails")}
+          className="h-7 w-7 cursor-pointer"
+        />
       </div>
     </div>
   );

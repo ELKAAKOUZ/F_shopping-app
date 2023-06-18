@@ -8,6 +8,7 @@ function Login() {
     const signInResult = await signIn();
     if (signInResult?.error) {
       console.log("erorrrrrororororo");
+      router.push("/path");
     } else {
       // Redirect to the desired path after successful sign-in
       router.push("/path");

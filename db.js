@@ -1,16 +1,12 @@
-import mongoose from "mongoose";
+import { MongoClient } from "mongodb";
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect("mongodb://localhost:27017/your-database-name", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("MongoDB connected");
-  } catch (error) {
-    console.error("MongoDB connection error:", error);
-    process.exit(1);
+const uri =
+  "mongodb+srv://mahmoudmahfoz2000:21399333@cluster0.yibwq8d.mongodb.net/"; // Replace with your MongoDB connection string
+const client = new MongoClient(uri);
+
+export async function connectToDatabase() {
+  if (!client.isConnected()) {
+    await client.connect();
   }
-};
-
-export default connectDB;
+  return client.db("shopping-app"); // Replace with your database name
+}

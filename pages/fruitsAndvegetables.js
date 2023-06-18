@@ -1,17 +1,11 @@
 import React from "react";
-import Image from "next/image";
-import { useState } from "react";
-import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { ChevronLeftIcon, PlusCircleIcon } from "@heroicons/react/24/solid";
-import ShopList from "@/components/ShopList";
-
-function ShoppingLists() {
+import { ChevronLeftIcon } from "@heroicons/react/24/solid";
+import FruitsList from "@/components/FruitsList";
+function fruitsAndvegetables() {
   const router = useRouter();
-  const lists = useSelector((state) => state.list.lists); // Update to 'state.list.lists'
-
   return (
-    <>
+    <div>
       <div
         className="relative flex items-center justify-center bg-center bg-no-repeat bg-cover"
         style={{
@@ -21,17 +15,17 @@ function ShoppingLists() {
         }}>
         <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-2xl font-semibold">
           <ChevronLeftIcon
-            onClick={() => router.push("/createYourList")}
-            className="h-7 w-7 cursor-pointer"
+            onClick={() => router.push("/categories")}
+            className=" h-7 w-7 cursor-pointer"
           />
-          <p>My Shopping Lists</p>
+          <p>Fruits and Vegetables</p>
         </div>
       </div>
       <div>
-        <ShopList lists={lists} />{" "}
+        <FruitsList />
       </div>
-    </>
+    </div>
   );
 }
 
-export default ShoppingLists;
+export default fruitsAndvegetables;

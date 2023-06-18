@@ -1,31 +1,20 @@
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   reactStrictMode: true,
-// }
-
-// module.exports = nextConfig
-// next.config.js
-// next.config.js
-// next.config.js
-// next.config.js
-// next.config.js
-// next.config.js
-// next.config.js
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
-  headers: async () => {
+  async headers() {
     return [
       {
         source: "/(.*)",
         headers: [
           {
             key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
+            value: "interest-cohort=()",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: "interest-cohort=()",
           },
         ],
       },
     ];
   },
 };
-
-module.exports = nextConfig;
