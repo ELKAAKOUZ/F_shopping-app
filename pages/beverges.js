@@ -2,7 +2,9 @@ import React from "react";
 import { useRouter } from "next/router";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import FruitsList from "@/components/Fruits&Vegetables/FruitsList";
-function fruitsAndvegetables() {
+import CakesandDairyList from "@/components/Cakes&Dairies/CakesandDairyList";
+import BeveragesList from "@/components/Beverages/BeveragesList";
+function Beverages() {
   const router = useRouter();
   return (
     <div>
@@ -18,14 +20,14 @@ function fruitsAndvegetables() {
             onClick={() => router.push("/categories")}
             className=" h-7 w-7 cursor-pointer"
           />
-          <p>Fruits and Vegetables</p>
+          <p>Beverges</p>
         </div>
       </div>
       <div>
-        <FruitsList />
+        <BeveragesList />
       </div>
     </div>
   );
 }
 
-export default fruitsAndvegetables;
+export default Beverages;

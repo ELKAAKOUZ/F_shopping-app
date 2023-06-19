@@ -12,17 +12,15 @@ const listSlice = createSlice({
       state.lists.push(action.payload);
     },
     deleteList: (state, action) => {
-      const listId = action.payload;
-      state.lists = state.lists.filter((list) => list.listId !== listId);
+      const id = action.payload;
+      state.lists = state.lists.filter((list) => list.id !== id);
     },
     clearList: (state) => {
       state.lists = [];
     },
     updateList: (state, action) => {
       const editedList = action.payload;
-      const index = state.lists.findIndex(
-        (list) => list.listId === editedList.listId
-      );
+      const index = state.lists.findIndex((list) => list.id === editedList.id);
       if (index !== -1) {
         state.lists[index] = editedList;
       }

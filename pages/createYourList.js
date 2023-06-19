@@ -2,18 +2,22 @@ import React from "react";
 import axios from "axios";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
+import { v4 as uuidv4 } from "uuid"; // Import the UUID library
 import { setList, clearList } from "../listSlice";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { ChevronLeftIcon, PlusCircleIcon } from "@heroicons/react/24/solid";
+
 function createYourList() {
   const router = useRouter();
   const dispatch = useDispatch();
   const [listName, setListName] = useState("");
   const [deadline, setDeadline] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setList({ listName, deadline }));
+    const listId = uuidv4(); // Generate a unique ID for the list
+    dispatch(setList({ id: listId, listName, deadline })); // Include the ID when adding the list
     router.push("/shoppingLists");
   };
 

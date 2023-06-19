@@ -1,8 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
-import FruitsList from "@/components/Fruits&Vegetables/FruitsList";
-function fruitsAndvegetables() {
+
+import StationaryList from "@/components/Stationary/StationaryList";
+function Stationary() {
   const router = useRouter();
   return (
     <div>
@@ -18,14 +19,14 @@ function fruitsAndvegetables() {
             onClick={() => router.push("/categories")}
             className=" h-7 w-7 cursor-pointer"
           />
-          <p>Fruits and Vegetables</p>
+          <p>Stationary</p>
         </div>
       </div>
       <div>
-        <FruitsList />
+        <StationaryList />
       </div>
     </div>
   );
 }
 
-export default fruitsAndvegetables;
+export default Stationary;

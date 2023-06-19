@@ -4,12 +4,12 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { ChevronLeftIcon, PlusCircleIcon } from "@heroicons/react/24/solid";
-import ShopList from "@/components/ShopList";
+import ShopList from "@/components/Shopping/ShopList";
 
 function ShoppingLists() {
   const router = useRouter();
   const lists = useSelector((state) => state.list.lists); // Update to 'state.list.lists'
-
+  console.log(lists);
   return (
     <>
       <div

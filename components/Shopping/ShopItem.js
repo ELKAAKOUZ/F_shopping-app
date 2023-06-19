@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { deleteList, updateList } from "../listSlice";
+import { deleteList, updateList } from "../../listSlice";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { PlusCircleIcon, StarIcon } from "@heroicons/react/24/outline";
@@ -15,8 +15,9 @@ function ShopItem({ id, name, deadline }) {
   const handleStarClick = () => {
     setStarActive(!starActive);
   };
-  const handleDelete = (listId) => {
-    dispatch(deleteList(listId));
+  const handleDelete = (id) => {
+    console.log(id);
+    dispatch(deleteList(id));
   };
 
   const handleEdit = () => {
