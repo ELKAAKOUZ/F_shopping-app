@@ -27,6 +27,7 @@ function ShopList({ lists }) {
             id={l.id}
             name={l.listName}
             deadLine={l.deadline}
+            items={l.items}
           />
         ))}
       </div>

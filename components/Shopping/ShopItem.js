@@ -4,17 +4,21 @@ import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { PlusCircleIcon, StarIcon } from "@heroicons/react/24/outline";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
+import ItemListModal from "../ItemListModal";
 
-function ShopItem({ id, name, deadline }) {
+function ShopItem({ id, name, deadline, items }) {
   const dispatch = useDispatch();
   const router = useRouter();
   const [editMode, setEditMode] = useState(false);
   const [editedName, setEditedName] = useState(name);
   const [editedDeadline, setEditedDeadline] = useState(deadline);
   const [starActive, setStarActive] = useState(false);
+  const [showItemList, setShowItemList] = useState(false);
+
   const handleStarClick = () => {
     setStarActive(!starActive);
   };
+
   const handleDelete = (id) => {
     console.log(id);
     dispatch(deleteList(id));
@@ -29,9 +33,18 @@ function ShopItem({ id, name, deadline }) {
       id,
       name: editedName,
       deadline: editedDeadline,
+      items, // Include the items array in the updated list
     };
     dispatch(updateList(editedList));
     setEditMode(false);
+  };
+
+  const handleOpenItemList = () => {
+    setShowItemList(true);
+  };
+
+  const handleCloseItemList = () => {
+    setShowItemList(false);
   };
 
   return (
@@ -84,6 +97,19 @@ function ShopItem({ id, name, deadline }) {
           </>
         )}
       </div>
+      <div
+        className="bg-yellow-500 cursor-pointer rounded-2xl text-center text-white p-1 mt-2"
+        onClick={handleOpenItemList}>
+        View Items
+      </div>
+      {showItemList && (
+        <ItemListModal
+          listId={id}
+          listName={name}
+          items={items}
+          onClose={handleCloseItemList}
+        />
+      )}
     </div>
   );
 }

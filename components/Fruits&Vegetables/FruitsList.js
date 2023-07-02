@@ -6,49 +6,57 @@ const FRUITS_AND_VEGETABLES = [
     id: "1",
     image: "/Fruits&Vegetables_Photos/lemons.jpg",
     name: "Lemons",
-    quantity: "1",
+    quantity: 1,
+    measure: "kilo",
   },
   {
     id: "2",
     image: "/Fruits&Vegetables_Photos/Bananas.jpg",
     name: "Bananas",
-    quantity: "1",
+    quantity: 1,
+    measure: "kilo",
   },
   {
     id: "3",
     image: "/Fruits&Vegetables_Photos/Gurken.jpg",
     name: "Gurken",
-    quantity: "1",
+    quantity: 1,
+    measure: "kilo",
   },
   {
     id: "4",
     image: "/Fruits&Vegetables_Photos/Pomegranate.jpg",
     name: "Pomegrante",
-    quantity: "1",
+    quantity: 1,
+    measure: "kilo",
   },
   {
     id: "5",
     image: "/Fruits&Vegetables_Photos/cherries.jpg",
     name: "Cherries",
-    quantity: "1",
+    quantity: 1,
+    measure: "kilo",
   },
   {
     id: "6",
     image: "/Fruits&Vegetables_Photos/Avocado.jpg",
     name: "Avocado",
-    quantity: "1",
+    quantity: 1,
+    measure: "kilo",
   },
   {
     id: "7",
     image: "/Fruits&Vegetables_Photos/Blackberries.jpg",
     name: "Blackberries",
-    quantity: "1",
+    quantity: 1,
+    measure: "kilo",
   },
   {
     id: "8",
     image: "/Fruits&Vegetables_Photos/Tomatoes.png",
     name: "Tomatoes",
-    quantity: "1",
+    quantity: 1,
+    measure: "kilo",
   },
 ];
 
@@ -64,6 +72,7 @@ function FruitsList() {
           image={f.image}
           name={f.name}
           quantity={f.quantity}
+          measure={f.measure}
           lists={lists}
         />
       ))}

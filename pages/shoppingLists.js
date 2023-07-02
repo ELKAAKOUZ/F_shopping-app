@@ -9,7 +9,7 @@ import ShopList from "@/components/Shopping/ShopList";
 function ShoppingLists() {
   const router = useRouter();
   const lists = useSelector((state) => state.list.lists); // Update to 'state.list.lists'
-  console.log(lists);
+
   return (
     <>
       <div

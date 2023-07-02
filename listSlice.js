@@ -1,7 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  lists: [],
+  lists: [
+    // {
+    //   id: 1,
+    //   name: "My List",
+    //   deadline: "2023-06-30",
+    //   items: [], // Initialize the items array as empty
+    // },
+  ],
 };
 
 const listSlice = createSlice({
@@ -25,8 +32,61 @@ const listSlice = createSlice({
         state.lists[index] = editedList;
       }
     },
+    addItemToList: (state, action) => {
+      const { listId, item } = action.payload;
+      const list = state.lists.find((list) => list.id === listId);
+      if (list) {
+        const existingItem = list.items.find((i) => i.id === item.id);
+        if (existingItem) {
+          // Item already exists, increment the quantity
+          existingItem.quantity += 1;
+        } else {
+          // Item does not exist, add it to the list
+          list.items.push(item);
+        }
+      }
+    },
+
+    toggleItemStar: (state, action) => {
+      const { listId, itemId } = action.payload;
+      const list = state.lists.find((list) => list.id === listId);
+      if (list) {
+        const item = list.items.find((item) => item.id === itemId);
+        if (item) {
+          item.starred = !item.starred;
+        }
+      }
+    },
+
+    deleteItem: (state, action) => {
+      const { listId, itemId } = action.payload;
+      const list = state.lists.find((list) => list.id === listId);
+      if (list) {
+        list.items = list.items.filter((item) => item.id !== itemId);
+      }
+    },
+
+    editItem: (state, action) => {
+      const { listId, itemId, newQuantity } = action.payload;
+      const list = state.lists.find((list) => list.id === listId);
+      if (list) {
+        const item = list.items.find((item) => item.id === itemId);
+        if (item) {
+          item.quantity = newQuantity;
+        }
+      }
+    },
   },
 });
 
-export const { setList, deleteList, clearList, updateList } = listSlice.actions;
+export const {
+  setList,
+  deleteList,
+  clearList,
+  updateList,
+  addItemToList,
+  toggleItemStar,
+  deleteItem,
+  editItem,
+} = listSlice.actions;
 export default listSlice.reducer;

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import ListSelectionModal from "../ListSelectionModal";
-// import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addItemToList } from "../../listSlice";
 
-function BeveragesItem({ id, name, quantity, image, lists }) {
+function BeveragesItem({ id, name, quantity, image, measure, lists }) {
   const [showModal, setShowModal] = useState(false);
   const [selectedList, setSelectedList] = useState(null);
-  // const lists = useSelector((state) => state.list.lists);
+  const dispatch = useDispatch();
   const handleAddToList = () => {
     setShowModal(true);
   };
@@ -13,9 +14,13 @@ function BeveragesItem({ id, name, quantity, image, lists }) {
   const handleSelectList = (list) => {
     setSelectedList(list);
     setShowModal(false);
-    // Perform the necessary action with the selected list and fruit item, e.g., add the fruit item to the selected list
-    console.log("Selected list:", list);
-    console.log("Selected fruit item:", { id, name, quantity, image });
+    // Dispatch action to add item to the selected list
+    dispatch(
+      addItemToList({
+        listId: list.id,
+        item: { id, name, quantity, image, measure },
+      })
+    );
   };
 
   return (
@@ -23,7 +28,9 @@ function BeveragesItem({ id, name, quantity, image, lists }) {
       <img className="h-[90px]" src={image} alt={name} />
       <div className="text-center my-2">
         <p className="text-sm">{name}</p>
-        <p>{quantity} pcs</p>
+        <p>
+          {quantity} <span>{measure}</span>
+        </p>
       </div>
       <div
         className="bg-green-700 cursor-pointer rounded-2xl text-center text-white p-1"

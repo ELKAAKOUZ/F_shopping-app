@@ -6,61 +6,64 @@ const BEVERAGES_DATA = [
     id: "1",
     image: "/Beverages_Photos/fanta-dose-0-33l.png",
     name: "fanta-dose-0-33l",
-    quantity: "1",
+    quantity: 1,
+    measure: "Pcs",
   },
   {
     id: "2",
     image: "/Beverages_Photos/mineralwasser-still.jpg",
     name: "mineralwasser",
-    quantity: "6",
+    quantity: 1,
+    measure: "Pcs",
   },
-  //   {
-  //     id: "3",
-  //     image: "/Beverages_Photos/RedBull.jpg",
-  //     name: "RedBull",
-  //     quantity: "1",
-  //   },
   {
     id: "4",
     image: "/Beverages_Photos/Trauben Saft.jpg",
     name: "Trauben Saft",
-    quantity: "1",
+    quantity: 1,
+    measure: "Pcs",
   },
   {
     id: "5",
     image: "/Beverages_Photos/Vio Bio Limo.jpg",
     name: "Vio Bio Limo",
-    quantity: "1",
+    quantity: 1,
+    measure: "Pcs",
   },
   {
     id: "6",
     image: "/Beverages_Photos/Vio Mineralwasser.jpg",
     name: "Vio Mineralwasser",
-    quantity: "1",
+    quantity: 1,
+    measure: "Pcs",
   },
   {
     id: "7",
     image: "/Beverages_Photos/fanta-dose-0-33l.png",
     name: "Fanta",
-    quantity: "1",
+    quantity: 1,
+    measure: "Pcs",
   },
   {
     id: "8",
     image: "/Beverages_Photos/Coca Cola.jpg",
     name: "Coca Cola",
-    quantity: "1",
+    quantity: 1,
+    measure: "Pcs",
   },
   {
     id: "9",
     image: "/Beverages_Photos/Coca Cola Dose.jpg",
     name: "Coca Cola Dose",
-    quantity: "1",
+    quantity: 1,
+    measure: "Pcs",
   },
   {
     id: "10",
     image: "/Beverages_Photos/Apfel Saft.jpg",
     name: "Apfel Saft",
-    quantity: "1",
+    quantity: 1,
+    measure: "Pcs",
   },
 ];
 
@@ -76,6 +79,7 @@ function BeveragesList() {
           image={f.image}
           name={f.name}
           quantity={f.quantity}
+          measure={f.measure}
           lists={lists}
         />
       ))}
