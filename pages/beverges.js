@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import FruitsList from "@/components/Fruits&Vegetables/FruitsList";
 import CakesandDairyList from "@/components/Cakes&Dairies/CakesandDairyList";
+import withAuth from "../components/WithAuth";
 import BeveragesList from "@/components/Beverages/BeveragesList";
 function Beverages() {
   const router = useRouter();
@@ -12,7 +13,7 @@ function Beverages() {
         className="relative flex items-center justify-center bg-center bg-no-repeat bg-cover"
         style={{
           backgroundImage: "url('/pic1.jpeg')",
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           height: "10rem",
         }}>
         <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-2xl font-semibold">
@@ -30,4 +31,4 @@ function Beverages() {
   );
 }
 
-export default Beverages;
+export default withAuth(Beverages);

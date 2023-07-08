@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import { deleteList, updateList } from "../../listSlice";
 import { useDispatch } from "react-redux";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import { PlusCircleIcon, StarIcon } from "@heroicons/react/24/outline";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
@@ -11,9 +11,10 @@ function ShopItem({ id, name, deadline, items }) {
   const router = useRouter();
   const [editMode, setEditMode] = useState(false);
   const [editedName, setEditedName] = useState(name);
-  const [editedDeadline, setEditedDeadline] = useState(deadline);
+  const [editedDeadline, setEditedDeadline] = useState(deadline || ""); // Provide initial empty string value
   const [starActive, setStarActive] = useState(false);
   const [showItemList, setShowItemList] = useState(false);
+  const itemModalRef = useRef(null);
 
   const handleStarClick = () => {
     setStarActive(!starActive);
@@ -28,7 +29,19 @@ function ShopItem({ id, name, deadline, items }) {
     setEditMode(true);
   };
 
-  const handleSave = () => {
+  const handleSave = (e) => {
+    e.preventDefault(); // Prevent form submission
+
+    if (editedName.trim() === "") {
+      // Check if edited name is empty
+      return;
+    }
+
+    if (editedDeadline.trim() === "") {
+      // Check if edited deadline is empty
+      return;
+    }
+
     const editedList = {
       id,
       name: editedName,
@@ -47,8 +60,28 @@ function ShopItem({ id, name, deadline, items }) {
     setShowItemList(false);
   };
 
+  const handleClickOutside = (event) => {
+    if (
+      itemModalRef.current &&
+      !itemModalRef.current.contains(event.target) &&
+      event.target.className !==
+        "bg-yellow-500 cursor-pointer rounded-2xl text-center text-white p-1 mt-2"
+    ) {
+      setShowItemList(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="bg-yellow-300 flex flex-col justify-between my-2 w-5/6 rounded-2xl p-3 h-32  mx-auto">
+    <div
+      className="bg-yellow-300 flex flex-col justify-between my-2 w-5/6 rounded-2xl p-3 h-32 mx-auto"
+      ref={itemModalRef}>
       <div className="flex items-center justify-between">
         {editMode ? (
           <>

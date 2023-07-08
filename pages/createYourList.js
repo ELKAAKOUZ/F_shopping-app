@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid"; // Import the UUID library
 import { setList, clearList } from "../listSlice";
 import { useState } from "react";
+import withAuth from "../components/WithAuth";
 import { useRouter } from "next/router";
 import { ChevronLeftIcon, PlusCircleIcon } from "@heroicons/react/24/solid";
 
@@ -52,7 +53,7 @@ function createYourList() {
         className="relative flex items-center justify-center bg-center bg-no-repeat bg-cover"
         style={{
           backgroundImage: "url('/pic1.jpeg')",
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           height: "10rem",
         }}>
         <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-2xl font-semibold">
@@ -102,4 +103,4 @@ function createYourList() {
   );
 }
 
-export default createYourList;
+export default withAuth(createYourList);

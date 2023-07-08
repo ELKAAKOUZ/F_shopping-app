@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
-
+import withAuth from "../components/WithAuth";
 import StationaryList from "@/components/Stationary/StationaryList";
 function Stationary() {
   const router = useRouter();
@@ -11,7 +11,7 @@ function Stationary() {
         className="relative flex items-center justify-center bg-center bg-no-repeat bg-cover"
         style={{
           backgroundImage: "url('/pic1.jpeg')",
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           height: "10rem",
         }}>
         <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-2xl font-semibold">
@@ -29,4 +29,4 @@ function Stationary() {
   );
 }
 
-export default Stationary;
+export default withAuth(Stationary);

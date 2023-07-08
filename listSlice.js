@@ -1,14 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  lists: [
-    // {
-    //   id: 1,
-    //   name: "My List",
-    //   deadline: "2023-06-30",
-    //   items: [], // Initialize the items array as empty
-    // },
-  ],
+  lists: [],
+  user: null,
 };
 
 const listSlice = createSlice({
@@ -76,6 +70,9 @@ const listSlice = createSlice({
         }
       }
     },
+    setUser: (state, action) => {
+      state.user = action.payload;
+    },
   },
 });
 
@@ -88,5 +85,6 @@ export const {
   toggleItemStar,
   deleteItem,
   editItem,
+  setUser,
 } = listSlice.actions;
 export default listSlice.reducer;

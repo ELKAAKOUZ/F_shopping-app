@@ -1,32 +1,58 @@
 import Image from "next/image";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { ChevronLeftIcon, PlusCircleIcon } from "@heroicons/react/24/solid";
-export default function HomePage() {
+import { auth } from "./firebase";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useDispatch } from "react-redux";
+
+import { setUser } from "../listSlice";
+
+export default function LoginPage() {
+  const dispatch = useDispatch();
+
+  const [user, setUserInfo] = useAuthState(auth);
   const router = useRouter();
+  const googleAuth = new GoogleAuthProvider();
+
+  const handleLogin = async () => {
+    const result = await signInWithPopup(auth, googleAuth);
+
+    if (result.user) {
+      const userData = {
+        name: result.user.displayName,
+        email: result.user.email,
+        image: result.user.photoURL,
+      };
+      console.log(userData);
+      dispatch(setUser(userData));
+
+      router.push("/homePage");
+    }
+  };
+
   return (
-    <>
+    <div className="h-screen  min-w-sm max-w-[414px] mx-auto text-center">
       <div
-        className="relative flex items-center justify-center bg-center bg-no-repeat bg-cover"
+        className="relative min-w-sm max-w-[414px] flex items-center justify-center bg-center bg-no-repeat bg-cover"
         style={{
           backgroundImage: "url('/pic1.jpeg')",
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           height: "10rem",
         }}>
-        <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-2xl font-semibold">
-          <ChevronLeftIcon className="h-7 w-7 cursor-pointer" />
-          <p>My Shopping Lists</p>
+        <div className="absolute flex items-center justify-center space-x-2 top-1/2 text-black text-2xl font-semibold">
+          <p>My Shopping App</p>
         </div>
       </div>
-
       <div>
-        <Image className=" mx-auto" src="/pic2.jpeg" height={200} width={300} />
+        <Image className="mx-auto" src="/pic2.jpeg" height={200} width={300} />
       </div>
-      <div
-        onClick={() => router.push("/createYourList")}
-        className="flex cursor-pointer items-center justify-center mt-10 space-x-2 bg-yellow-500 rounded-2xl p-2 w-2/3 mx-auto ">
-        <PlusCircleIcon className="h-7 w-7" />
-        <p>Add a new List</p>
-      </div>
-    </>
+
+      <button
+        onClick={handleLogin}
+        className="bg-yellow-300 w-2/3 mx-auto rounded-2xl p-2 my-12">
+        Login In
+      </button>
+    </div>
   );
 }
