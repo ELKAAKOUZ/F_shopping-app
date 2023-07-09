@@ -77,7 +77,7 @@ const PARFÜMERIE = [
 
 function ParfumsList() {
   const lists = useSelector((state) => state.list.lists);
-  console.log(lists);
+
   return (
     <div className="grid grid-cols-2 overflow-y-scroll no-scrollbar  max-h-[730px]">
       {PARFÜMERIE.map((f) => (

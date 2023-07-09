@@ -20,7 +20,7 @@ function ShoppingLists() {
           backgroundSize: "cover",
           height: "10rem",
         }}>
-        <div className="  flex items-center justify-center space-x-2  text-black text-2xl font-semibold">
+        <div className="  flex items-center justify-center space-x-2  text-black text-3xl font-semibold">
           <ChevronLeftIcon
             onClick={() => router.push("/createYourList")}
             className="h-7 w-7 cursor-pointer"

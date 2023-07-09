@@ -8,13 +8,13 @@ function fruitsAndvegetables() {
   return (
     <div>
       <div
-        className="relative flex items-center justify-center bg-center bg-no-repeat bg-cover"
+        className="sticky top-0 z-50 flex items-center justify-center bg-center bg-no-repeat bg-cover"
         style={{
           backgroundImage: "url('/pic1.jpeg')",
           backgroundSize: "cover",
           height: "10rem",
         }}>
-        <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-2xl font-semibold">
+        <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-3xl font-semibold">
           <ChevronLeftIcon
             onClick={() => router.push("/categories")}
             className=" h-7 w-7 cursor-pointer"

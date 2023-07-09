@@ -40,7 +40,7 @@ export default function LoginPage() {
           backgroundSize: "cover",
           height: "10rem",
         }}>
-        <div className="absolute flex items-center justify-center space-x-2 top-1/2 text-black text-2xl font-semibold">
+        <div className="absolute flex items-center justify-center space-x-2 top-1/2 text-black text-3xl font-semibold">
           <p>My Shopping App</p>
         </div>
       </div>

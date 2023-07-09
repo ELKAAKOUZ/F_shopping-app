@@ -4,7 +4,7 @@ import withAuth from "../components/WithAuth";
 import { useSelector } from "react-redux";
 function accountDetails() {
   const user = useSelector((state) => state.list.user);
-  console.log(user);
+
   return (
     <div>
       <div
@@ -14,7 +14,7 @@ function accountDetails() {
           backgroundSize: "cover",
           height: "10rem",
         }}>
-        <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-2xl font-semibold">
+        <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-3xl font-semibold">
           <p>Account Details</p>
         </div>
       </div>

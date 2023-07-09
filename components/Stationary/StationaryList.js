@@ -62,7 +62,7 @@ const STATIONARY_DATA = [
 
 function StationaryList() {
   const lists = useSelector((state) => state.list.lists);
-  console.log(lists);
+
   return (
     <div className="grid grid-cols-2 overflow-y-scroll no-scrollbar  max-h-[730px]">
       {STATIONARY_DATA.map((f) => (

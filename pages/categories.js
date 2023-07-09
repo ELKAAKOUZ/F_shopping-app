@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import withAuth from "../components/WithAuth";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 const CATEGORIES_DATA = [
   {
     id: "1",
@@ -57,7 +58,7 @@ function categories() {
           backgroundSize: "cover",
           height: "10rem",
         }}>
-        <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-2xl font-semibold">
+        <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-3xl font-semibold">
           <ChevronLeftIcon className=" h-7 w-7 cursor-pointer" />
           <p>Categories</p>
         </div>
@@ -67,9 +68,14 @@ function categories() {
           {CATEGORIES_DATA.map((cat) => (
             <div
               onClick={() => router.push(cat.page)}
-              className="rounded-2xl  scrollbar-hide m-1 cursor-pointer p-2 "
+              className="rounded-2xl shadow-xl hover:scale-95 ease-in-out duration-200  scrollbar-hide m-3 cursor-pointer "
               key={cat.id}>
-              <img src={cat.image} className="rounded-t-2xl w-full h-[90px]" />
+              <Image
+                src={cat.image}
+                className="rounded-t-2xl w-full h-[90px]"
+                width={200}
+                height={200}
+              />
               <div
                 style={{ backgroundColor: cat.color }}
                 className="p-1  rounded-b-2xl h-12">

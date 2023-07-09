@@ -3,11 +3,7 @@ import { useDispatch } from "react-redux";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import { PlusCircleIcon, StarIcon } from "@heroicons/react/24/outline";
-import {
-  EyeIcon,
-  PencilSquareIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
+import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import ItemListModal from "../ItemListModal";
 
 function ShopItem({ id, name, deadline, items }) {
@@ -15,7 +11,7 @@ function ShopItem({ id, name, deadline, items }) {
   const router = useRouter();
   const [editMode, setEditMode] = useState(false);
   const [editedName, setEditedName] = useState(name);
-  const [editedDeadline, setEditedDeadline] = useState(deadline || ""); // Provide initial empty string value
+  const [editedDeadline, setEditedDeadline] = useState(deadline || "");
   const [starActive, setStarActive] = useState(false);
   const [showItemList, setShowItemList] = useState(false);
   const itemModalRef = useRef(null);
@@ -34,15 +30,13 @@ function ShopItem({ id, name, deadline, items }) {
   };
 
   const handleSave = (e) => {
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault();
 
     if (editedName.trim() === "") {
-      // Check if edited name is empty
       return;
     }
 
     if (editedDeadline.trim() === "") {
-      // Check if edited deadline is empty
       return;
     }
 
@@ -50,7 +44,7 @@ function ShopItem({ id, name, deadline, items }) {
       id,
       name: editedName,
       deadline: editedDeadline,
-      items, // Include the items array in the updated list
+      items,
     };
     dispatch(updateList(editedList));
     setEditMode(false);
@@ -84,7 +78,7 @@ function ShopItem({ id, name, deadline, items }) {
 
   return (
     <div
-      className="bg-yellow-300 flex flex-col justify-between my-2 w-5/6 rounded-2xl p-3 h-32 mx-auto"
+      className="bg-yellow-300 shadow-xl flex flex-col justify-between my-2 w-5/6 rounded-2xl p-3 h-32 mx-auto"
       ref={itemModalRef}>
       <div className="flex items-center justify-between">
         {editMode ? (
@@ -105,7 +99,7 @@ function ShopItem({ id, name, deadline, items }) {
         ) : (
           <>
             <p>{editedName}</p>
-            {/* <EyeIcon className="w-7 h-7 relative right-1/2 left-1/2 mx-auto mr-1" /> */}
+
             <StarIcon
               onClick={handleStarClick}
               className={`w-7 h-7 cursor-pointer ${
@@ -136,11 +130,7 @@ function ShopItem({ id, name, deadline, items }) {
           </>
         )}
       </div>
-      {/* <div
-        className="bg-yellow-500 cursor-pointer rounded-2xl text-center text-white p-1 mt-2"
-        onClick={handleOpenItemList}>
-        View Items
-      </div> */}
+
       {showItemList && (
         <ItemListModal
           listId={id}

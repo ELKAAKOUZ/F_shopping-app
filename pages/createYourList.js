@@ -56,7 +56,7 @@ function createYourList() {
           backgroundSize: "cover",
           height: "10rem",
         }}>
-        <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-2xl font-semibold">
+        <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-3xl font-semibold">
           <ChevronLeftIcon
             onClick={() => router.push("/")}
             className="h-7 w-7 cursor-pointer"
@@ -66,7 +66,7 @@ function createYourList() {
       </div>
 
       <div>
-        <Image className=" mx-auto" src="/pic2.jpeg" height={200} width={300} />
+        <Image className=" mx-auto" src="/pic2.jpeg" height={200} width={250} />
       </div>
       <form onSubmit={handleSubmit} className="mx-auto w-2/3 text-center">
         <div>

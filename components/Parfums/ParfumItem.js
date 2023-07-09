@@ -14,7 +14,6 @@ function ParfumItem({ id, name, quantity, image, measure, lists }) {
   const handleSelectList = (list) => {
     setSelectedList(list);
     setShowModal(false);
-    // Dispatch action to add item to the selected list
     dispatch(
       addItemToList({
         listId: list.id,
@@ -25,15 +24,15 @@ function ParfumItem({ id, name, quantity, image, measure, lists }) {
 
   return (
     <div className="m-5 ">
-      <img className="h-[90px]" src={image} alt={name} />
+      <img className="h-[80px]  mx-auto rounded-full" src={image} alt={name} />
       <div className="text-center my-2">
         <p className="text-sm">{name}</p>
         <p>
-          {quantity} <span>{measure}</span>
+          {quantity} <span className="text-gray-400">{measure}</span>
         </p>
       </div>
       <div
-        className="bg-yellow-500 cursor-pointer rounded-2xl text-center text-white p-1"
+        className="bg-green-600 hover:bg-green-400 ease-in-out duration-300 w-3/4 mx-auto cursor-pointer rounded-2xl text-center text-white p-1"
         onClick={handleAddToList}>
         ADD
       </div>

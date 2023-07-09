@@ -14,7 +14,7 @@ const BEVERAGES_DATA = [
     image: "/Beverages_Photos/mineralwasser-still.jpg",
     name: "mineralwasser",
     quantity: 1,
-    measure: "Pcs",
+    measure: "Packet",
   },
   {
     id: "4",

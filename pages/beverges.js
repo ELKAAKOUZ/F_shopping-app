@@ -16,7 +16,7 @@ function Beverages() {
           backgroundSize: "cover",
           height: "10rem",
         }}>
-        <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-2xl font-semibold">
+        <div className="absolute flex items-center justify-center space-x-2 top-1/2  text-black text-3xl font-semibold">
           <ChevronLeftIcon
             onClick={() => router.push("/categories")}
             className=" h-7 w-7 cursor-pointer"
