@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { auth } from "./firebase";
+import { auth } from "../firebase";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch } from "react-redux";

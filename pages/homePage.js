@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/solid";
 import withAuth from "../components/WithAuth";
 import { useDispatch } from "react-redux";
-import { auth } from "./firebase";
+import { auth } from "../firebase";
 const HomePage = () => {
   const router = useRouter();
   const dispatch = useDispatch();

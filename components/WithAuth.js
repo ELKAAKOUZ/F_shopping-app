@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../pages/firebase";
+import { auth } from "../firebase";
 
 const withAuth = (WrappedComponent) => {
   const WithAuthComponent = () => {
