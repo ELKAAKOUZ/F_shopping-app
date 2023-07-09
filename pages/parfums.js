@@ -10,7 +10,7 @@ function Parfums() {
   return (
     <div>
       <div
-        className="relative flex items-center justify-center bg-center bg-no-repeat bg-cover"
+        className="sticky top-0 z-50 flex items-center  justify-center bg-center bg-no-repeat bg-cover"
         style={{
           backgroundImage: "url('/pic1.jpeg')",
           backgroundSize: "cover",
@@ -24,7 +24,7 @@ function Parfums() {
           <p>Parfums</p>
         </div>
       </div>
-      <div>
+      <div className="scrollbar-hide">
         <ParfumsList />
       </div>
     </div>

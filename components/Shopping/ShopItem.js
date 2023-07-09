@@ -3,7 +3,11 @@ import { useDispatch } from "react-redux";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import { PlusCircleIcon, StarIcon } from "@heroicons/react/24/outline";
-import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
+import {
+  EyeIcon,
+  PencilSquareIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
 import ItemListModal from "../ItemListModal";
 
 function ShopItem({ id, name, deadline, items }) {
@@ -100,7 +104,8 @@ function ShopItem({ id, name, deadline, items }) {
           </>
         ) : (
           <>
-            <p>{editedName}</p>{" "}
+            <p>{editedName}</p>
+            {/* <EyeIcon className="w-7 h-7 relative right-1/2 left-1/2 mx-auto mr-1" /> */}
             <StarIcon
               onClick={handleStarClick}
               className={`w-7 h-7 cursor-pointer ${
@@ -110,6 +115,7 @@ function ShopItem({ id, name, deadline, items }) {
           </>
         )}
       </div>
+      <div onClick={handleOpenItemList} className="h-10 cursor-pointer"></div>
       <div className="flex items-center justify-between">
         {editMode ? (
           <button onClick={handleSave}>Save</button>
@@ -130,11 +136,11 @@ function ShopItem({ id, name, deadline, items }) {
           </>
         )}
       </div>
-      <div
+      {/* <div
         className="bg-yellow-500 cursor-pointer rounded-2xl text-center text-white p-1 mt-2"
         onClick={handleOpenItemList}>
         View Items
-      </div>
+      </div> */}
       {showItemList && (
         <ItemListModal
           listId={id}

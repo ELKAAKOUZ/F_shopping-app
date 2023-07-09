@@ -51,7 +51,7 @@ function categories() {
   return (
     <div>
       <div
-        className="relative flex items-center justify-center bg-center bg-no-repeat bg-cover"
+        className=" sticky top-0  flex items-center justify-center bg-center bg-no-repeat bg-cover"
         style={{
           backgroundImage: "url('/pic1.jpeg')",
           backgroundSize: "cover",
@@ -62,14 +62,14 @@ function categories() {
           <p>Categories</p>
         </div>
       </div>
-      <div className="flex flex-grow  ">
-        <div className="grid grid-cols-2 max-h-[650px] no-scrollbar   overflow-y-scroll">
+      <div className="flex flex-grow scrollbar-hide ">
+        <div className="grid grid-cols-2 max-h-[650px] scrollbar-hide mx-5  overflow-y-scroll">
           {CATEGORIES_DATA.map((cat) => (
             <div
               onClick={() => router.push(cat.page)}
-              className="rounded-2xl cursor-pointer p-2 "
+              className="rounded-2xl  scrollbar-hide m-1 cursor-pointer p-2 "
               key={cat.id}>
-              <img src={cat.image} className="rounded-t-2xl w-full h-[120px]" />
+              <img src={cat.image} className="rounded-t-2xl w-full h-[90px]" />
               <div
                 style={{ backgroundColor: cat.color }}
                 className="p-1  rounded-b-2xl h-12">

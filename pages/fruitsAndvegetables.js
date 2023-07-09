@@ -22,7 +22,7 @@ function fruitsAndvegetables() {
           <p>Fruits and Vegetables</p>
         </div>
       </div>
-      <div>
+      <div className="">
         <FruitsList />
       </div>
     </div>

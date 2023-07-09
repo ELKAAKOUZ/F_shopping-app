@@ -9,7 +9,7 @@ function cakesAnddairy() {
   return (
     <div>
       <div
-        className="relative flex items-center justify-center bg-center bg-no-repeat bg-cover"
+        className="sticky top-0 z-50 flex items-center justify-center bg-center bg-no-repeat bg-cover"
         style={{
           backgroundImage: "url('/pic1.jpeg')",
           backgroundSize: "cover",

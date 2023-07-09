@@ -15,10 +15,10 @@ import {
 function Footer(props) {
   const router = useRouter();
   return (
-    <div className="h-screen min-w-sm max-w-[414px] mx-auto flex flex-col justify-between ">
-      <div className="flex-grow ">{props.children}</div>
+    <div className="h-screen min-w-sm max-w-[414px] scrollbar-hide mx-auto flex flex-col justify-between ">
+      <div className="flex-grow scrollbar-hide">{props.children}</div>
 
-      <div className="bg-yellow-300 rounded-b-2xl flex flex-row justify-evenly items-center h-12">
+      <div className="bg-yellow-300 rounded-b-2xl z-50 sticky bottom-0 flex flex-row justify-evenly items-center h-12 py-2">
         <HomeIcon
           onClick={() => router.push("/homePage")}
           className="h-7 w-7 cursor-pointer"

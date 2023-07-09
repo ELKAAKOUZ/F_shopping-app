@@ -31,12 +31,6 @@ function ShopList({ lists }) {
           />
         ))}
       </div>
-      <div
-        onClick={() => router.push("/createYourList")}
-        className="bg-yellow-400 flex items-center justify-center h-12 my-2 rounded-xl cursor-pointer">
-        <PlusCircleIcon className="w-7 h-7" />
-        <p>New List</p>
-      </div>
     </div>
   );
 }
